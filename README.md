@@ -17,4 +17,4 @@ MbxPlaces is a simple address suggester based on MapBox API
 | ------------ | ------- | ------- | ----------- |
 | limit        | number  | 5       | count of suggested addresses |
 | onSelect     | func    | required | handler on address selected |
-| apiKey       | number  | required | your API key for MapBox |
+| apiKey       | string  | required | your API key for MapBox |
