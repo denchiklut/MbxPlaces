@@ -27,7 +27,10 @@ export default class MbxPlaces extends Component {
         onSelect: PropTypes.func.isRequired,
 
         /** Limit of suggestions */
-        limit: PropTypes.number
+        limit: PropTypes.number,
+
+        /** Bbox */
+        bbox: PropTypes.array
     };
 
     static defaultProps = {
@@ -35,6 +38,7 @@ export default class MbxPlaces extends Component {
         wrapperClassname: null,
         suggestedWrapperClassname: null,
         suggestedItemClassname: null,
+        bbox: null,
         limit: 5
     };
 
@@ -62,7 +66,7 @@ export default class MbxPlaces extends Component {
     };
 
     fetchAddress = term => {
-        const { apiKey, limit } = this.props;
+        const { apiKey, limit, bbox } = this.props;
         const baseClient = mbxClient({ accessToken: apiKey });
 
         if (term) {
@@ -70,6 +74,7 @@ export default class MbxPlaces extends Component {
                 .forwardGeocode({
                     query: term,
                     autocomplete: true,
+                    bbox: bbox,
                     limit
                 })
                 .send()
