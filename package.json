@@ -1,6 +1,6 @@
 {
   "name": "mbx-places",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Autocomplete for searching geo objects by address",
   "keywords": [
     "places",
