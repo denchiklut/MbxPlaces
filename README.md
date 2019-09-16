@@ -1,7 +1,7 @@
 ## MbxPlaces
 
 MbxPlaces is a simple address suggester based on MapBox API
-
+![alt image](http://imgs-info.ru/2019/09/16/SNIMOK-EKRANA-2019-09-16-V-13.30.33.png)
 ## Usage example
 
 ```js
