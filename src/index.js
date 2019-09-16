@@ -23,6 +23,12 @@ export default class MbxPlaces extends Component {
         /** Class for suggested item */
         suggestedItemClassname: PropTypes.string,
 
+        /** Input placeholder */
+        placeholder: PropTypes.string,
+
+        /** Initial value */
+        initialValue: PropTypes.string,
+
         /** Call back function */
         onSelect: PropTypes.func.isRequired,
 
@@ -35,7 +41,9 @@ export default class MbxPlaces extends Component {
 
     static defaultProps = {
         inputClassname: null,
+        placeholder: 'address',
         wrapperClassname: null,
+        initialValue: null,
         suggestedWrapperClassname: null,
         suggestedItemClassname: null,
         bbox: null,
@@ -43,7 +51,7 @@ export default class MbxPlaces extends Component {
     };
 
     state = {
-        term: '',
+        term: this.props.initialValue || '' ,
         resultList: [],
         isShowList: false
     };
@@ -118,6 +126,7 @@ export default class MbxPlaces extends Component {
     render() {
         const { term, isShowList, resultList } = this.state;
         const {
+            placeholder,
             inputClassname,
             wrapperClassname,
             suggestedWrapperClassname
@@ -129,7 +138,7 @@ export default class MbxPlaces extends Component {
                     <input
                         type="text"
                         value={ term }
-                        placeholder="Search.."
+                        placeholder={ placeholder }
                         className={ cn('inputSearch', inputClassname)}
                         onChange={ this.onChange }
                         onFocus={ this.onFocus }
